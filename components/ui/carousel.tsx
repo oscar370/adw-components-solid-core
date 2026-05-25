@@ -49,7 +49,11 @@ export function CarouselProvider(props: CarouselProps) {
 		"class",
 		"children",
 	]);
-	const [carouselRef, api] = useEmblaCarousel(local.opts, local.plugins);
+
+	const opts = () => local.opts;
+	const plugins = () => local.plugins;
+
+	const [carouselRef, api] = useEmblaCarousel(opts(), plugins());
 
 	const [canScrollPrev, setCanScrollPrev] = createSignal(false);
 	const [canScrollNext, setCanScrollNext] = createSignal(false);
@@ -109,6 +113,7 @@ export function CarouselProvider(props: CarouselProps) {
 				canScrollNext,
 			}}
 		>
+			{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
 			<div
 				class={cn("relative", local.class)}
 				onKeyDown={handleKeyDown}

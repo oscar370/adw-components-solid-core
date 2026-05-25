@@ -7,7 +7,7 @@ import {
 } from "lucide-solid";
 import { Toaster as Sonner, type ToasterProps } from "solid-sonner";
 
-export function Toaster({ ...rest }: ToasterProps) {
+export function Toaster(props: ToasterProps) {
 	return (
 		<Sonner
 			icons={{
@@ -24,7 +24,7 @@ export function Toaster({ ...rest }: ToasterProps) {
 				},
 			}}
 			closeButton={true}
-			{...rest}
+			{...props}
 		/>
 	);
 }
